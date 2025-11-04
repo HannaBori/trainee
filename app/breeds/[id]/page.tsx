@@ -42,7 +42,7 @@ const DogPage = () => {
               <div className={styles.page__back}><Link href="/"><IconBack/></Link></div>
               <div className={styles.page__wrapper}>
                 <div className={styles.page__wrapperImage}>
-                    <img src={`https://cdn2.thedogapi.com/images/${breed.reference_image_id}.jpg`} alt={breed.name} className={styles.page__img} />
+                    <img src={breed.reference_image_id ? `https://cdn2.thedogapi.com/images/${breed.reference_image_id}.jpg` :`https://mvd.gov.by/assets/img/nophoto.jpg` } alt={breed.name} className={styles.page__img} />
                 </div>
                 <div className={styles.page__info}>
                   <p className={styles.page__name}>{breed.name}</p>

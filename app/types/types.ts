@@ -12,5 +12,5 @@ export type DogsType = {
     height?: {
         metric?: string;   
     };
-    reference_image_id?:string
+    reference_image_id?:string,
 }

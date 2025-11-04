@@ -52,7 +52,6 @@ const BreedList = () => {
             setPage(totalPages - 1);
         }
     }, [total, page, favorites]);
-    
     return(
         <div className={styles.breedList}>
             
