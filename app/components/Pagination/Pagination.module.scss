@@ -1,0 +1,39 @@
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:5px;
+    
+    &__text{
+        font-family: var(--font-montserrat), sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        color: #999999;
+    }
+     &__select{
+        color: #313037;
+    }
+    &__ellipsis{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:5px;
+        padding: 0.5rem 1rem;
+        font-size: 30px;
+        font-weight: 500;
+    }
+    &__btn{
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-weight: 500;
+        min-width: 40px;
+        text-align: center;
+        &:disabled {
+            path{
+                fill:#999999;
+            }
+        }
+    }
+    
+}
