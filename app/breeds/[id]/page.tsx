@@ -3,7 +3,7 @@ import DogPage from './DogPage';
 
 
 export async function generateStaticParams() {
-  // Получаем список всех пород
+
   const res = await fetch('https://api.thedogapi.com/v1/breeds');
   const data: DogsType[] = await res.json();
 

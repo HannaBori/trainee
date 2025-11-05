@@ -13,13 +13,15 @@ import { fetchBreeds } from '@/app/redux/features/breedsSlice';
 const DogPage = ({ id }: { id: string }) => {
   const dispatch = useAppDispatch();
   const breeds = useAppSelector(state=>state.breeds.breeds);
-    const breed = breeds.find(item => item.id == Number(id));
+  const breed = breeds.find(item => item.id == Number(id));
     
     useEffect(() => {
-    if (!breeds.length) {
-      dispatch(fetchBreeds());
-    }
-  }, [breeds.length, dispatch]);
+      const breedExists = breeds.find(item => item.id === Number(id));
+      if (!breedExists) {
+        dispatch(fetchBreeds()); 
+      }
+}, [breeds, id, dispatch]);
+
 
     if (!breed) {
     return (
