@@ -17,7 +17,7 @@ const DogPage = ({ id }: { id: string }) => {
   const [breed, setBreed] = useState<DogsType | undefined>();
     
  useEffect(() => {
-    if (!breed) {
+    if (breeds.length === 0) {
       dispatch(fetchBreeds());
     }
   }, [breed, dispatch]);
