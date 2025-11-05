@@ -4,9 +4,8 @@ import Link from 'next/link';
 import styles from './DogPage.module.scss'
 import IconBack from '../../components/SVG/IconBack';
 import { useAppDispatch, useAppSelector } from '@/app/redux/hooks';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { fetchBreeds } from '@/app/redux/features/breedsSlice';
-import { DogsType } from '@/app/types/types';
 
 
 
@@ -14,22 +13,15 @@ import { DogsType } from '@/app/types/types';
 const DogPage = ({ id }: { id: string }) => {
   const dispatch = useAppDispatch();
   const breeds = useAppSelector(state=>state.breeds.breeds);
-  const [breed, setBreed] = useState<DogsType | undefined>();
-
-  console.log('Компонент DogPage отрисован, id =', id);
+  
+  const breed = breeds.find(item => item.id == Number(id));
     
+ console.log('id в клиентском компоненте:', id);
  useEffect(() => {
     if (breeds.length === 0) {
-      console.log('Вызываю fetchBreeds()');
       dispatch(fetchBreeds());
     }
-  }, [breeds, dispatch]);
-
-  useEffect(() => {
-    const found = breeds.find(item => item.id === Number(id));
-    console.log('Ищу породу по id', id, 'результат:', found);
-    setBreed(found);
-  }, [breeds, id]);
+}, [breeds.length, dispatch]);
 
     if (!breed) {
     return (
