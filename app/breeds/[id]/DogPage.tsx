@@ -11,12 +11,11 @@ import { fetchBreeds } from '@/app/redux/features/breedsSlice';
 
 
 const DogPage = ({ id }: { id: string }) => {
+  
   const dispatch = useAppDispatch();
   const breeds = useAppSelector(state=>state.breeds.breeds);
-  
-  const breed = breeds.find(item => item.id == Number(id));
-    
- console.log('id в клиентском компоненте:', id);
+  const breed = breeds.find(item => item.id == Number(id));   
+
  useEffect(() => {
     if (breeds.length === 0) {
       dispatch(fetchBreeds());

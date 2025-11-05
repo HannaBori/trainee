@@ -13,10 +13,11 @@ export async function generateStaticParams() {
   }));
 }
 
-const DogPages = ({ params }: { params: { id: string } }) => {
-  console.log('params:', params); 
+const DogPages = async ({ params }: { params: { id: string } }) => {
+  const resolvedParams = await params; 
+  const { id } = resolvedParams;
   return (
-    <DogPage id={params.id}/>
+    <DogPage id={id}/>
   )
 }
 
