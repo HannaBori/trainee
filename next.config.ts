@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+
+  basePath: "/trainee",
+  output: "export",  
+  reactStrictMode: true,
+  trailingSlash: true,
 };
 
-export default nextConfig;
+module.exports = nextConfig;

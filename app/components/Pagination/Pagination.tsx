@@ -1,4 +1,5 @@
-"use client"
+'use client';
+
 import { useAppDispatch, useAppSelector } from '@/app/redux/hooks';
 import IconLeft from '../SVG/IconLeft'
 import IconRight from '../SVG/IconRight'

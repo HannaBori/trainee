@@ -1,17 +1,15 @@
-"use client"
+'use client'
 
 import Link from 'next/link';
 import styles from './CreateBreed.module.scss'
 
 import { useAppDispatch, useAppSelector } from '@/app/redux/hooks';
-import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { addBreed, fetchBreeds } from '@/app/redux/features/breedsSlice';
 import IconBack from '../components/SVG/IconBack';
-import { DogsType } from '../types/types';
 
-const DogPage = () => {
+const CreateBreed = () => {
     const dispatch = useAppDispatch();
     const router = useRouter();
     const breeds = useAppSelector(state=>state.breeds.breeds);
@@ -38,7 +36,7 @@ const DogPage = () => {
   return (
     <div className={styles.create}>
           <div className={styles.create__container}>
-            <div className={styles.create__back}><Link href="/"><IconBack/></Link></div>
+            <div className={styles.create__back}><Link href="/breeds"><IconBack/></Link></div>
             <form className={styles.create__wrapper} onSubmit={handleSubmit}>
                 <div className={styles.create__info}>
                     <label htmlFor='breedName' className={styles.create__text} >Breed name: </label>
@@ -77,4 +75,4 @@ const DogPage = () => {
   )
 }
 
-export default DogPage
+export default CreateBreed

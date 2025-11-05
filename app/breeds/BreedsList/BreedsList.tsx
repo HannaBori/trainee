@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { DogsType } from '@/app/types/types'
 import styles from './BreedsList.module.scss'
