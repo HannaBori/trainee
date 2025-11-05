@@ -1,10 +1,9 @@
-"use client"
+'use client';
 
 import Link from 'next/link'
 import styles from './Header.module.scss'
 import SearchInput from '../SearchInput/SearchInput'
 import IconHeart from '../SVG/IconHeart'
-import IconLogo from '../SVG/IconLogo'
 import { useAppDispatch, useAppSelector } from '@/app/redux/hooks'
 import { setShowFavorites } from '@/app/redux/features/favoriteSlice'
 import { useEffect } from 'react'
