@@ -15,15 +15,20 @@ const DogPage = ({ id }: { id: string }) => {
   const dispatch = useAppDispatch();
   const breeds = useAppSelector(state=>state.breeds.breeds);
   const [breed, setBreed] = useState<DogsType | undefined>();
+
+  console.log('Компонент DogPage отрисован, id =', id);
+  console.log('breeds в сторе:', breeds.length);
     
  useEffect(() => {
     if (breeds.length === 0) {
+      console.log('Вызываю fetchBreeds()');
       dispatch(fetchBreeds());
     }
-  }, [breed, dispatch]);
+  }, [breeds.length, dispatch]);
 
   useEffect(() => {
     const found = breeds.find(item => item.id === Number(id));
+    console.log('Ищу породу по id', id, 'результат:', found);
     setBreed(found);
   }, [breeds, id]);
 
