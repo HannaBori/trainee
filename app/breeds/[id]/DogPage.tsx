@@ -17,14 +17,13 @@ const DogPage = ({ id }: { id: string }) => {
   const [breed, setBreed] = useState<DogsType | undefined>();
 
   console.log('Компонент DogPage отрисован, id =', id);
-  console.log('breeds в сторе:', breeds.length);
     
  useEffect(() => {
     if (breeds.length === 0) {
       console.log('Вызываю fetchBreeds()');
       dispatch(fetchBreeds());
     }
-  }, [breeds.length, dispatch]);
+  }, [breeds, dispatch]);
 
   useEffect(() => {
     const found = breeds.find(item => item.id === Number(id));

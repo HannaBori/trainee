@@ -14,6 +14,7 @@ export async function generateStaticParams() {
 }
 
 const DogPages = ({ params }: { params: { id: string } }) => {
+  console.log('params:', params); 
   return (
     <DogPage id={params.id}/>
   )
