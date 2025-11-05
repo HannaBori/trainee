@@ -4,8 +4,9 @@ import Link from 'next/link';
 import styles from './DogPage.module.scss'
 import IconBack from '../../components/SVG/IconBack';
 import { useAppDispatch, useAppSelector } from '@/app/redux/hooks';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchBreeds } from '@/app/redux/features/breedsSlice';
+import { DogsType } from '@/app/types/types';
 
 
 
@@ -13,15 +14,18 @@ import { fetchBreeds } from '@/app/redux/features/breedsSlice';
 const DogPage = ({ id }: { id: string }) => {
   const dispatch = useAppDispatch();
   const breeds = useAppSelector(state=>state.breeds.breeds);
-  const breed = breeds.find(item => item.id == Number(id));
+  const [breed, setBreed] = useState<DogsType | undefined>();
     
-    useEffect(() => {
-      const breedExists = breeds.find(item => item.id === Number(id));
-      if (!breedExists) {
-        dispatch(fetchBreeds()); 
-      }
-}, [breeds, id, dispatch]);
+ useEffect(() => {
+    if (!breed) {
+      dispatch(fetchBreeds());
+    }
+  }, [breed, dispatch]);
 
+  useEffect(() => {
+    const found = breeds.find(item => item.id === Number(id));
+    setBreed(found);
+  }, [breeds, id]);
 
     if (!breed) {
     return (
